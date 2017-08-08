@@ -1,5 +1,5 @@
 import Papa from 'papaparse';
-import d3 from 'd3';
+import * as D3 from 'd3';
 
 console.log("Hello world");
 
@@ -20,6 +20,8 @@ button.addEventListener("click", function() {
             complete: function(results, file) {
                 console.log(results.data);
                 console.log(file);
+
+                mostFrequentCoach(results.data)
             },
             header: true
         })
@@ -28,3 +30,25 @@ button.addEventListener("click", function() {
 
     }
 });
+
+function mostFrequentCoach(data) {
+
+
+    console.log(data);
+
+    var histBuckets = {};
+
+    data.forEach(workout => {
+        if (workout["Instructor Name"] === undefined) {
+            return
+        }
+
+        if (histBuckets[workout["Instructor Name"]] === undefined) {
+            histBuckets[workout["Instructor Name"]] = 1
+        } else {
+            histBuckets[workout["Instructor Name"]]++;
+        }
+    })
+
+    console.log(histBuckets);
+};
