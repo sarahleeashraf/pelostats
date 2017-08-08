@@ -6,7 +6,8 @@
     "author": "Sarah Ashraf <sarahleeashraf@gmail.com>",
     "devDependencies": {
         "papaparse":"",
-        "webpack":""
+        "webpack":"",
+        "d3":""
     },
     "scripts": {
         "buildJavascript":"webpack src/index.js dist/bundle.js"
