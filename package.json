@@ -7,5 +7,8 @@
     "devDependencies": {
         "papaparse":"",
         "webpack":""
+    },
+    "scripts": {
+        "buildJavascript":"webpack src/index.js dist/bundle.js"
     }
 }
