@@ -5,5 +5,7 @@
     "repository": "https://github.com/sarahleeashraf/pelostats.git",
     "author": "Sarah Ashraf <sarahleeashraf@gmail.com>",
     "devDependencies": {
+        "papaparse":"",
+        "webpack":""
     }
 }
