@@ -1,0 +1,9 @@
+{
+    "name": "pelostats",
+    "version": "0.0.1",
+    "description": "Serverless App to Calculate fun stats from Peloton data",
+    "repository": "https://github.com/sarahleeashraf/pelostats.git",
+    "author": "Sarah Ashraf <sarahleeashraf@gmail.com>",
+    "devDependencies": {
+    }
+}
