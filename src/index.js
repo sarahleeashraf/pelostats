@@ -5,13 +5,29 @@ console.log("Hello world");
 
 var button = document.querySelector('.js-upload-data');
 var fileInput = document.querySelector('.js-csv-input');
+var chartTypeSelector = document.querySelector('.js-chart-type');
+
+function showChartTypeSelector() {
+    if (window.localStorage.getItem("PeloData")) {
+        chartTypeSelector.style.display = "block";
+    }
+}
+
+showChartTypeSelector()
+
+chartTypeSelector.addEventListener("change", (event) => {
+    const selector = event.target;
+    const selectedChart = selector.options[selector.selectedIndex].value;
+    console.log(selectedChart);
+
+    // TODO replace with pubsub or something better
+
+    mostFrequentCoach()
+});
 
 
 button.addEventListener("click", function() {
-    console.log('clickity');
 
-    console.log(fileInput);
-    console.log(fileInput.files);
 
     if (fileInput.files.length) {
         var file = fileInput.files[0];
@@ -21,20 +37,24 @@ button.addEventListener("click", function() {
                 console.log(results.data);
                 console.log(file);
 
-                mostFrequentCoach(results.data)
+                window.localStorage.setItem("PeloData", JSON.stringify(results.data));
+
+                showChartTypeSelector()
+
             },
             header: true
         })
 
 
-
     }
 });
 
-function mostFrequentCoach(data) {
+function mostFrequentCoach() {
 
+    const data = JSON.parse(window.localStorage.getItem("PeloData"));
 
     console.log(data);
+
 
     var histBuckets = {};
 
@@ -48,7 +68,9 @@ function mostFrequentCoach(data) {
         } else {
             histBuckets[workout["Instructor Name"]]++;
         }
-    })
+    });
 
     console.log(histBuckets);
+
+    // todo make chart
 };
