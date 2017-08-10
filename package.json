@@ -5,11 +5,12 @@
     "repository": "https://github.com/sarahleeashraf/pelostats.git",
     "author": "Sarah Ashraf <sarahleeashraf@gmail.com>",
     "devDependencies": {
+        "babel-loader":"",
+        "d3":"",
         "papaparse":"",
-        "webpack":"",
-        "d3":""
+        "webpack":""
     },
     "scripts": {
-        "buildJavascript":"webpack src/index.js dist/bundle.js"
+        "build":"webpack --config webpack.config.js"
     }
 }
